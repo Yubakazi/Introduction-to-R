@@ -1,0 +1,435 @@
+
+###############################################
+#Introduction to  R
+###############################################
+
+#list all installed packages
+ip <- as.data.frame(installed.packages())
+head(ip)
+
+
+
+# R studio cloud - file upload to upload 
+# Download from rstudion cloud- selecet the file,
+# click more and click export and pop up download where you can donload in specific folder
+
+
+getwd() # get working directory
+
+##Setting working directory
+# setwd("Y:/0002_R_SUPPORT/R Bootcamp/Bootcamp codes")
+# setting currnt directory- R studi, click ... in right bottom corner of the r studion and select the file,
+# smore and set as working directory
+
+# Free and open source (people are working in r all over, anything can be done with r)
+# just apply package 
+
+
+#Define dataset
+#You can add, subtract, multiply, and divide. Just type the operations into the R Console (or R Script)
+# and hit the Ctrl+Enter (or run).
+
+x=c(112.3,97,92.7,86,102,99.2,95.8,103.5,89,86.7)
+
+y=c(75,71,57.7,48.7,74.3,73.3,68,59.3,57.8,48.5)
+
+#Analysis
+
+# Mean value of x: 
+mean(x)
+
+# Standard deviation of x:       
+sd(x)
+
+# Variance of x:       
+var(x)
+
+# Boxplot of x:     
+boxplot(x)
+
+# Five number summary of x:    
+fivenum(x)
+
+# Median value of x:       
+median(x)
+
+# QQ-Plot of x:       
+qqnorm(x)
+
+
+
+# Analysis on the relationship between x and y:
+
+# Scatterplot of x and y:       
+plot(x,y) # (first x-axis, then y-axis)
+
+
+# Correlation coefficient between x and y:      
+cor(x,y)
+
+# The coefficient of determination x and y:      
+cor(x,y)^2
+
+# Least squares line between x and y:       
+lm(y~x)
+
+# Draw least squares line:      
+plot(x,y)     
+abline(lm(y~x))
+
+# The summary information about the least squares line:      
+summary(lm(y~x))
+
+######################################################################
+
+
+require("datasets")
+df <- iris
+plot(df)
+
+
+
+plot (islands)
+
+2+2
+  
+1:100 # insert sequence of number
+print("Hello World")
+
+
+# Assigning Values use <- not =, as = used for argument
+a <-1
+
+c <- d <- e <- 3 # multiple assigment
+
+# multiple values
+x <- c(1, 2, 5, 9)
+
+# Common
+# character with quote " " - other language classify as string
+
+# logical or boolean, should be all cap like TRUE/FALS or T/F
+typeof(c1)
+
+
+# The default structure in R is vector, one dimestion number  either row or column
+
+
+#Vector
+v1 <- c(1,2,3,4,5)
+v1
+is.vector(v1)
+
+#In R everything is vector, even single value is vector in R
+
+
+#Matrix 
+m1 <- matrix (c (T,T, F, F, T, F), nrow=2)
+m1
+
+
+m2 <-matrix (c ("a", "b",
+                "c", "d"),
+             nrow=2,
+             byrow =T)
+m2
+
+
+
+
+
+#datafram - larger data set -look like spreadsheet
+
+#combine vectors of the same lenght
+vNumber <-c(1,2,3)
+vCharacter <- c("a", "b", "c")
+vLogical <- c(T, F, T)
+
+df1 <-cbind(vNumber,vCharacter, vLogical) 
+#cbind=bind number i.e make a data frame with three different type of number
+#cbind convert all into characters form which is not needed as we can see by typing df1
+
+df1
+# Using as.data.fram command change the the character to three type of vector,
+# which is used during the analysis
+df2 <-as.data.frame(cbind(vNumber,vCharacter, vLogical)) 
+df2
+
+
+#list =====================================
+
+o1 <- c(1,2,3)
+o2 <-c("a", "b", "c", "d")
+o3 <- c(T,F, T,T,F)
+list1 <- list(o1, o2, o3) #List combine the data, useful with text data
+list1
+
+list2 <- list(o1,o2,o3, list) # list within lists
+list2
+
+#Coercing types###############################
+##Automatic Coercion
+#Goes to least restrictive data type
+
+
+(coerce1 <-c(1,"b", TRUE))
+
+typeof(coerce1) # typeof will find the type of data
+
+#Coerce Numeric to integer
+(coerce2 <- 5)
+typeof(coerce2)
+
+(coerce3<- as.integer(5))
+typeof(coerce3)
+
+
+(coerce5 <-as.numeric(c("1","2","3")))
+typeof(coerce5)
+
+# Coerce Matrix to Data Frame
+
+(coerce6 <- matrix(1:9, nrow=3))
+is.matrix(coerce6)
+
+(coerce7 <- as.data.frame(matrix(1:9, nrow=3)))
+# we want this data frame for anaysis and have v1, v2, v3
+is.data.frame(coerce7)
+
+#is.na.data.frame(coerce7)
+
+
+##################################
+
+# Pie Chart with Percentages
+slices <- c(10, 12, 4, 16, 8)
+lbls <- c("US", "UK", "Australia", "Germany", "France")
+pct <- round(slices/sum(slices)*100)
+lbls <- paste(lbls, pct) # add percents to labels
+lbls <- paste(lbls,"%",sep="") # ad % to labels
+pie(slices,labels = lbls, col=rainbow(length(lbls)),
+    main="Pie Chart of Countries")
+
+
+
+
+# comments # hastag, pound 
+# shift +ctrl+c = is the shortcut for comment
+#load base package manually
+library(datasets)
+
+
+
+
+#load and prepare data
+?iris
+# ? will initiate help section and expain about iris data set
+
+df <-iris
+head(df)
+
+?hist
+#make histogram
+ hist (df$Sepal.Width, 
+       col ="blue", # blue color
+             border = T, # No boarder
+       main = "Histogram of Sepal Width", # main topic of the histogram
+  xlab = "Sepal with(cm)") # xlab=x label
+
+ 
+ # This is a level 1 header
+ ## This is a Level 2 header
+ ### This is a level 3 header
+ 
+#R markdown -document r as file
+ 
+
+ ########################
+ #CRAN= comrensive r archive node
+ # Packages=
+   # contributed packages = other people  worked on it 14000 package
+ # Package in r studio. check mark say it is installed.packages(
+   # load in memory- limit(pacman)
+ 
+ # Import 
+ 
+ 
+ #Tidyverse
+ # R package for data science
+ # easily imported manupulate and shared
+ install.packages("tidyverse")
+ 
+ # ==============================
+ #Pipes
+ # Piping %>% (then or goesto)
+ # Draw link between function by piping in tydry version
+ 
+ 
+ 
+ #======================
+ # ? - will provice information
+ ?library (help ="datasets")
+ 
+ ?iris
+ iris
+#great data to learn classfication and clustering data
+ 
+ ?UCBAdmissions
+UCBAdmissions
+
+
+?Titanic
+Titanic  
+
+
+#==Import data=======================
+# get data in speadsheet
+#clean rectangular data in excel in easy to import
+
+
+###########===========
+
+# First you need to upload the files, using the Upload button in the right bottom
+# Files pane When you click on it,you should get a dialog box with a button that launches your system file picker.
+# The dialog box will also advise you to upload multiple files
+# by first compressing them into a zip archive and then uploading the archive.
+# Once you have uploaded your files, they should appear in the Files pane.
+# When you use the Import Dataset feature, its file browser is browsing the 
+# files in your cloud project, not the files on your computer.
+# So you need to upload first so that thereâs something to select
+
+
+
+
+
+library(readxl)
+df <- read.csv("StateData.csv")
+# or
+df1 <- import("StateData.csv")
+View(StateData)
+
+
+###########################
+#color#######################
+?colors
+
+colors() # show complet list of colors
+
+#browse for color in R-
+#can see in Microsoft, pdf or google spreadsheet for various color names
+browseURL("https://datalab.cc/rcolors")
+
+
+?palette
+palette()
+#colorname
+
+#########################################
+#Visulaization
+#####################################################
+
+
+
+#Barchart
+library(tidyverse)
+#use the diamond dataset from ggplot2
+?diamonds # get some information on diamond dataset
+diamonds # see the data
+?plot
+?barplot
+
+
+plot(diamonds$cut) # $ cut variable
+
+#Using pipes to make barplot
+diamonds %>%
+   select(color)%>%
+   plot()
+
+#Similar code using barplot(); doesnot work
+diamonds%>%
+   select(clarity)%>%
+   barplot()
+## will cause error in barplot.default(.) : 'height' must be a vector or a matrix
+
+#create frequency vector with table()
+
+
+?table  # information about table
+
+#try agaian with table
+diamonds %>%
+   select(clarity) %>%
+   table()%>% #Put data in appropriate format
+   barplot()
+
+
+#Sort bars by decreasing values (not for ordinal x) sort(decreasing = T)
+
+diamonds %>%
+   select(clarity) %>%
+   table()%>% #Put data in appropriate format
+   sort(decreasing = T) %>% # Sort table in decreasing order
+   barplot()
+   
+
+# Add options to plot
+diamonds %>%
+   select(clarity) %>%
+   table() %>%  # Put data in appropriate format
+   barplot(
+      main   = "Clarity of Diamonds",
+      sub    = "(Source: ggplot2::diamonds)",
+      horiz  = T,  # Draw horizontal bars
+      ylab   = "Clarity of Diamonds",  # Flip axis labels
+      xlab   = "Frequency",
+      xlim   = c(0, 15000),  # Limits for X axis
+      border =  NA,  # No borders on bars and T for border
+      col    =  "Blue" # #CD0000"  # red3
+   )
+
+
+#####################################################
+#Histogram:
+#####################################################
+
+
+?hist 
+
+hist(diamonds$price)
+
+
+
+
+
+##################
+#SORT
+###############################
+
+#pipe | = or
+# and is &
+#Exclusive or not search !
+
+
+
+####################
+#Rearranging Data
+#########################
+
+#deeply package_version- mutate
+
+
+#case_when
+
+
+#summary() work better with numeric variable
+#table()  work will be character variable
+
+
+#psych package is best package for data visualization
+p_load(psych)
+p_help(psych, web = F)
+
+
+#round(2) # round to two decimal
+
